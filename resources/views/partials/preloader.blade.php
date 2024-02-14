@@ -1,0 +1,1 @@
+<img class="animation__wobble " src="{{ asset('vendor/img/logo.svg') }}" alt="AdminLTELogo" height="250" width="250" style="filter: brightness(0) invert(1);">

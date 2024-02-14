@@ -1,0 +1,149 @@
+
+:root{
+    --secondary100:#F4F4F5;
+    --secondary200:#7c7c7c;
+    --secondary600:#3B3C4A;
+}
+
+nav{
+    padding: 20px;
+}
+ul.nav-wrapper {
+    position: relative;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 40px;
+    line-height: 35px;
+    justify-content: center;
+    height: 100%;
+}
+ul.nav-wrapper li a{
+    color: var(--secondary600);
+    text-decoration: none;
+    font-weight: 500;
+}
+ul.nav-wrapper li a:hover{
+    color: #7c7c7c;
+}
+
+.search-form {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}   
+input.search-input {
+    border: none;
+    background-color: var(--secondary100);
+    border-radius: 8px;
+
+    padding: 5px;
+}
+.hero-img{
+    text-align: center;
+}
+.hero-img img{
+    position:relative;
+    z-index: -1;
+}
+.hero-img{
+    width: 100%;
+    margin: auto;
+}
+.card-hero {
+    max-width:600px ;
+    position: absolute;
+    top: 600px;
+    left: 200px;
+}
+.card-list-hero {
+    max-width:600px ;
+    position: absolute;
+    top: 530px;
+    left: 200px;
+}
+.card-body{
+    text-align: left;
+}
+section.second-hero{
+    margin-top: 100px;
+}
+form.form-news {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    text-align: center;
+}
+
+input.input-news {
+    padding: 8px;
+    border: 1px var(--secondary200) solid;
+}
+ul.quick-nav {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+ul.quick-nav li a{
+    text-decoration: none;
+    color: var(--secondary600);
+}
+ul.category-nav {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+ul.category-nav li a{
+    text-decoration: none;
+    color: var(--secondary600);
+}
+ul.quick-nav li a:hover{
+    color:#7c7c7c ;
+}
+ul.category-nav li a:hover{
+    color:#7c7c7c ;
+}
+ul.copyright-nav {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 20px;
+    height: 100%;
+}
+ul.copyright-nav li a{
+    color: var(--secondary600);
+    text-decoration: none;
+}
+ul.copyright-nav li a:hover{
+    color: #7c7c7c;
+}
+.link-list{
+    text-align: center;
+}
+ul.nav-link-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 25px;
+}
+ul.nav-link-list li a{
+    text-decoration: none;
+    color: var(--secondary600);
+}
+ul.nav-link-list li a:hover{
+    color: #7c7c7c;
+}
+.author-hero{
+    display: flex;
+    flex-direction: column;
+}
+.author-name{
+    height: 100%;
+    align-items: center;
+    line-height: 10px;
+}
