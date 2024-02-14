@@ -13,12 +13,23 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Get the latest blog post
         $latestblog = Blog::latest('created_at')->first();
-        $blogs = Blog::latest('created_at')->paginate(6);
+
+        // Check if the latest blog post is hidden
+        if ($latestblog->status === 'Hide') {
+            // Get the next latest blog post that is not hidden
+            $latestblog = Blog::where('status', '!=', 'Hide')->latest('created_at')->first();
+        }
+
+        // Fetch other blog posts for pagination
+        $blogs = Blog::where('status', '!=', 'Hide')->latest('created_at')->paginate(6);
+
         $category = Category::all();
 
         return view('home.index', compact('category', 'latestblog', 'blogs'));
     }
+
     public function blogs()
     {
         $latestblog = Blog::latest('created_at')->first();

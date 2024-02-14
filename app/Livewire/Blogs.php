@@ -33,6 +33,7 @@ class Blogs extends Component
                     });
             });
         }
+        $query->where('status', '!=', 'hide');
 
         $posts = $query->paginate(6, ['*'], 'page', $this->pageNumber);
         $this->pageNumber += 1;
