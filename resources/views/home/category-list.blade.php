@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="link-list col-12">
-                    <h2>{{ $category->category }} </h2>
+                <h2>{{ $category->category }} </h2>
                     <ul class="nav-link-list">
                         <li class=""><a href="" class="">Home</a></li>
                         |

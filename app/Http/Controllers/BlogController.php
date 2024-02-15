@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\Cast\String_;
 
 class BlogController extends Controller
 {
@@ -70,9 +71,20 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, String $id)
     {
-        //
+        $image = $request->file('image');
+        $image_name = $image->getClientOriginalName();
+        $post = Blog::find($id);
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->image = $image_name;
+        $post->status = $request->status;
+        $post->desk = $request->desk;
+
+        $image->move(public_path() . '/vendor/img/', $image_name);
+        $post->update();
+        return back();
     }
 
     /**

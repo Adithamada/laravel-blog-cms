@@ -50,6 +50,7 @@ Route::get('/dashboard/{user_id}', [DashboardController::class, 'index'])->name(
 
 Route::get('/manage-blog/{user_id}', [BlogController::class, 'index'])->name('index-blog')->middleware('auth');
 Route::post('/manage-blog/create', [BlogController::class, 'store'])->name('create-blog');
+Route::patch('/manage-blog/{id}', [BlogController::class, 'update'])->name('update-blog');
 
 Route::get('/manage-category/{user_id}', [CategoryController::class, 'index'])->name('index-category')->middleware('auth');
 Route::post('/manage-category/create', [CategoryController::class, 'store'])->name('create-category');
