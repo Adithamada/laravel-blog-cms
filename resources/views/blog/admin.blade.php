@@ -44,7 +44,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    @include('partials.sidebar-admin')
+                    @include('partials.admin-sidebar')
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -91,7 +91,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{route('create-blog')}}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{route('create-admin-blog')}}" method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 @method('POST')
                                                 <div class="mb-3">
@@ -144,7 +144,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($paginateblog as $p)
+                                    @foreach($blog as $p)
                                     <tr>
                                         <td>{{ $p->id }} </td>
                                         <td><img src="{{ asset('vendor/img/'.$p->image) }}" class="w-50 rounded"></td>
@@ -167,7 +167,7 @@
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="{{route('update-blog',['id'=>$p->id])}}" method="POST" enctype="multipart/form-data">
+                                                            <form action="{{route('update-admin-blog',['id'=>$p->id])}}" method="POST" enctype="multipart/form-data">
                                                                 @csrf
                                                                 @method('Patch')
                                                                 <div class="mb-3">
@@ -209,7 +209,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <form action="{{ route('delete-blog',['id'=>$p->id]) }}" method="POST">
+                                            <form action="{{ route('delete-admin-blog',['id'=>$p->id]) }}" method="POST">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="btn btn-danger" type="submit">Delete</button>
