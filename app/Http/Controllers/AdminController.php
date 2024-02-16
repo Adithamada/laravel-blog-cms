@@ -13,33 +13,63 @@ class AdminController extends Controller
      */
     public function index($user_id)
     {
-        $user=auth()->user();
-        $user_id=$user->id;
-        return view('dashboard.admin',compact('user_id'));
+        $user = auth()->user();
+        $user_id = $user->id;
+        return view('dashboard.admin', compact('user_id'));
     }
-    public function blog($user_id)
+
+
+    // Blog Admin
+    public function indexblog($user_id)
     {
-        $user=auth()->user();
-        $user_id=$user->id;
-        $blog = Blog::latest('created_at')->paginate(5);
+        $user = auth()->user();
+        $user_id = $user->id;
+        $blog = Blog::latest('created_at')->paginate(6);
         $category = Category::all();
-        return view('blog.admin',[
-            'blog'=>$blog,
-            'category'=>$category,
-            'user_id'=>$user_id
+        return view('blog.admin', [
+            'blog' => $blog,
+            'category' => $category,
+            'user_id' => $user_id
         ]);
     }
+    public function updateblog(Request $request, string $id)
+    {
+        $image = $request->file('image');
+        $image_name = $image->getClientOriginalName();
+        $post = Blog::find($id);
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->image = $image_name;
+        $post->status = $request->status;
+        $post->desk = $request->desk;
+
+        $image->move(public_path() . '/vendor/img/', $image_name);
+        $post->update();
+        return back();
+    }
+    public function destroyblog(string $id)
+    {
+        $blog = Blog::find($id);
+        $blog->delete();
+        return back();
+    }
+
+
+    // Category Admin
     public function category($user_id)
     {
-        $user=auth()->user();
-        $user_id=$user->id;
-        return view('user.admin',compact('user_id'));
+        $user = auth()->user();
+        $user_id = $user->id;
+        return view('user.admin', compact('user_id'));
     }
-    public function user($user_id)
+
+
+    // User Admin
+    public function indexuser($user_id)
     {
-        $user=auth()->user();
-        $user_id=$user->id;
-        return view('user.admin',compact('user_id'));
+        $user = auth()->user();
+        $user_id = $user->id;
+        return view('user.admin', compact('user_id'));
     }
 
     /**

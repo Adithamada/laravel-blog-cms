@@ -44,7 +44,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    @include('partials.sidebar-admin')
+                    @include('partials.admin-sidebar')
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>

@@ -37,10 +37,14 @@ Route::get('/load-more', [BlogController::class, 'loadMore'])->name('load-more')
 // ADMIN MANAGE
 Route::get('/dashboard-admin/{user_id}', [AdminController::class, 'index'])->name('admin-dashboard')->middleware('auth');
 
-Route::get('/admin-manage-blog/{user_id}', [AdminController::class, 'blog'])->name('index-admin-blog')->middleware('auth');
-Route::post('/admin-manage-blog/create', [AdminController::class, 'store'])->name('create-admin-blog');
-Route::patch('/admin-manage-blog/{id}', [AdminController::class, 'update'])->name('update-admin-blog');
-Route::delete('/admin-manage-blog/{id}', [AdminController::class, 'destroy'])->name('delete-admin-blog');
+Route::get('/admin-manage-blog/{user_id}', [AdminController::class, 'indexblog'])->name('index-admin-blog')->middleware('auth');
+Route::patch('/admin-manage-blog/{id}', [AdminController::class, 'updateblog'])->name('update-admin-blog');
+Route::delete('/admin-manage-blog/{id}', [AdminController::class, 'destroyblog'])->name('delete-admin-blog');
+
+Route::get('/manage-user/{user_id}', [UserController::class, 'indexuser'])->name('index-admin-user')->middleware('auth');
+Route::post('/manage-user/create', [UserController::class, 'store'])->name('create-admin-user');
+
+
 
 
 // AUTHOR MANAGE

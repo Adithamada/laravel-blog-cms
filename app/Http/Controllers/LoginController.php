@@ -17,16 +17,17 @@ class LoginController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required'
         ]);
-
+    
         if (Auth::attempt($credentials)) {
-            $user = auth()->user();
             $request->session()->regenerate();
-            if (Auth::user()->level === '0' ) {
-                return redirect()->route('index-dashboard', ['user_id' => $user->id]);
-            }else{
+            $user = Auth::user(); // Getting the authenticated user
+    
+            if ($user->level == '1') {
                 return redirect()->route('admin-dashboard', ['user_id' => $user->id]);
+            } else {
+                return redirect()->route('index-dashboard', ['user_id' => $user->id]);
             }
-        } 
+        }
     }
 
     public function logout(Request $request)
