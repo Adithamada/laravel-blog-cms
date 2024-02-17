@@ -34,18 +34,18 @@
                     <div class="single-content mt-5">
                         <?= $blog->desk ?>
                     </div>
-                    <div class="tag-content">
-                        <p><span class="badge badge-secondary">Tag</span></p>
+                    <div class="tag mt-5 d-flex align-item-center">
+                        <h4>Tags :</h4>
+                        <div class="tag-content">
+                            <ul class="tag-wrapper">
+                                <li><span class="badge bg-secondary">Education</span></li>
+                                <li><span class="badge bg-secondary">Tech</span></li>
+                                <li><span class="badge bg-secondary">Code</span></li>
+                                <li><span class="badge bg-secondary">Internet</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="second-hero">
-        <div class="container">
-            <div class="row">
-
             </div>
         </div>
     </section>

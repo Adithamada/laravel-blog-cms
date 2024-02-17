@@ -147,3 +147,9 @@ ul.nav-link-list li a:hover{
     align-items: center;
     line-height: 10px;
 }
+ul.tag-wrapper {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 15px;
+}
