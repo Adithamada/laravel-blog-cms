@@ -34,6 +34,9 @@
                     <div class="single-content mt-5">
                         <?= $blog->desk ?>
                     </div>
+                    <div class="tag-content">
+                        <p><span class="badge badge-secondary">Tag</span></p>
+                    </div>
                 </div>
             </div>
         </div>
