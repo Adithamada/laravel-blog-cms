@@ -29,7 +29,7 @@
                                     <h3><a href="{{ route('show-blog', ['title' => $latestblog->title]) }}" class="link text-dark text-decoration-none">{{$latestblog->title }}</a></h3>
                                     <div class="author d-flex">
                                         <i class="bi bi-person-circle"></i>
-                                        <p class="text-secondary mx-3">{{ $latestblog->user->name }} </p>
+                                        <p class="text-secondary mx-3"><a href="{{ route('author-page',['name'=>$latestblog->user->name]) }}" class="link text-dark text-decoration-none">{{ $latestblog->user->name }}</a></p>
                                         <p class="text-secondary">{{ $latestblog->date }} </p>
                                     </div>
                                 </div>

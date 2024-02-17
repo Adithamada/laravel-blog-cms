@@ -25,13 +25,13 @@
                                 <h1>
                                     <i class="bi bi-person-circle"></i>
                                 </h1>
-                                <div class="">
-                                    <h5 class="mx-4">Jason Derulo</h5>
+                                <div class="mx-2">
+                                    <h5 class="mx-4">{{ $name->name }} </h5>
                                     <p class="text-secondary">Developer & Editor</p>
                                 </div>
                             </div>
                             <div class="col-5 author-bio text-center m-auto">
-                                <p>Meet Jonathan Doe, a passionate writer and blogger with a love for technology and travel. Jonathan holds a degree in Computer Science and has spent years working in the tech industry, gaining a deep understanding of the impact technology has on our lives.</p>
+                                <p>Meet {{ $name->name }}, a passionate writer and blogger with a love for technology and travel. {{ $name->name }} holds a degree in Computer Science and has spent years working in the tech industry, gaining a deep understanding of the impact technology has on our lives.</p>
                             </div>
                             <div class="button-socmed d-flex justify-content-center">
                                 <div class="btn btn-block btn-secondary"><i class="bi bi-facebook"></i></div>
@@ -51,90 +51,22 @@
                 Latest Post
             </h3>
             <div class="row">
+                @foreach($blog as $b)
                 <div class="col-4 mb-3">
                     <div class="card p-3">
-                        <img src="{{ asset('vendor/img/beach.png') }}" alt="">
+                        <img src="{{ asset('vendor/img/'.$b->image) }}" alt="">
                         <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">Technology</span>
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, sed!</h4>
-                            <div class="author-hero d-flex">
+                            <span class="badge bg-body-secondary text-primary">{{ $b->category->category }} </span>
+                            <h4>{{ $b ->title}}</h4>
+                            <div class="author d-flex">
                                 <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">Jason Derulo</p>
-                                <p class="text-secondary">14 August 2024</p>
+                                <p class="text-secondary mx-3">{{ $b->user->name }}</p>
+                                <p class="text-secondary">{{ $b->date }} </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-4 mb-3">
-                    <div class="card p-3">
-                        <img src="{{ asset('vendor/img/beach.png') }}" alt="">
-                        <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">Technology</span>
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, sed!</h4>
-                            <div class="author-hero d-flex">
-                                <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">Jason Derulo</p>
-                                <p class="text-secondary">14 August 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mb-3">
-                    <div class="card p-3">
-                        <img src="{{ asset('vendor/img/beach.png') }}" alt="">
-                        <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">Technology</span>
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, sed!</h4>
-                            <div class="author-hero d-flex">
-                                <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">Jason Derulo</p>
-                                <p class="text-secondary">14 August 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mb-3">
-                    <div class="card p-3">
-                        <img src="{{ asset('vendor/img/beach.png') }}" alt="">
-                        <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">Technology</span>
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, sed!</h4>
-                            <div class="author-hero d-flex">
-                                <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">Jason Derulo</p>
-                                <p class="text-secondary">14 August 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mb-3">
-                    <div class="card p-3">
-                        <img src="{{ asset('vendor/img/beach.png') }}" alt="">
-                        <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">Technology</span>
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, sed!</h4>
-                            <div class="author-hero d-flex">
-                                <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">Jason Derulo</p>
-                                <p class="text-secondary">14 August 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 mb-3">
-                    <div class="card p-3">
-                        <img src="{{ asset('vendor/img/beach.png') }}" alt="">
-                        <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">Technology</span>
-                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, sed!</h4>
-                            <div class="author-hero d-flex">
-                                <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">Jason Derulo</p>
-                                <p class="text-secondary">14 August 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <div class="col-12 mb-5">
                     <div class="button-load text-center">
                         <button type="button" class="btn btn-transparents border"> Load More</button>
