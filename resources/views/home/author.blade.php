@@ -50,14 +50,14 @@
             <h3 class="latest">
                 Latest Post
             </h3>
-            <div class="row">
+            <div class="row mb-4">
                 @foreach($blog as $b)
                 <div class="col-4 mb-3">
                     <div class="card p-3">
                         <img src="{{ asset('vendor/img/'.$b->image) }}" alt="">
                         <div class="card-body">
                             <span class="badge bg-body-secondary text-primary">{{ $b->category->category }} </span>
-                            <h4>{{ $b ->title}}</h4>
+                            <h4>{{ Illuminate\Support\Str::limit($b->title, 40, '...') }}</h4>
                             <div class="author d-flex">
                                 <i class="bi bi-person-circle"></i>
                                 <p class="text-secondary mx-3">{{ $b->user->name }}</p>
@@ -67,11 +67,6 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="col-12 mb-5">
-                    <div class="button-load text-center">
-                        <button type="button" class="btn btn-transparents border"> Load More</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

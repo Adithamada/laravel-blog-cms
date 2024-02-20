@@ -31,7 +31,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'index'])->name('index-home');
 Route::get('/blog', [HomeController::class, 'blogs'])->name('list-blog');
 Route::get('/category/{category}', [HomeController::class, 'category'])->name('list-category');
-Route::get('/author/{name}', [HomeController::class, 'author'])->name('author-page');
+Route::get('/author/{authorName}', [HomeController::class, 'author'])->name('author-page');
 Route::get('/blog/{title}', [HomeController::class, 'show'])->name('show-blog');
 Route::get('/load-more', [BlogController::class, 'loadMore'])->name('load-more');
 
