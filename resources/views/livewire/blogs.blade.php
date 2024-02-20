@@ -8,7 +8,7 @@
                 <h4><a href="{{ route('show-blog', ['title' => $b->title]) }}" class="link text-dark text-decoration-none">{{ Illuminate\Support\Str::limit($b->title, 40, '...') }}</a></h4>
                 <div class="author d-flex">
                     <i class="bi bi-person-circle"></i>
-                    <p class="text-secondary mx-3"><a href="{{ route('author-page',['name'=>$b->user->name]) }}" class="link text-dark text-decoration-none">{{ $b->user->name }}</a></p>
+                    <p class="text-secondary mx-3"><a href="{{ route('author-page',['authorName'=>$b->user->name]) }}" class="link text-dark text-decoration-none">{{ $b->user->name }}</a></p>
                     <p class="text-secondary">{{ $b->date }}</p>
                 </div>
             </div>
