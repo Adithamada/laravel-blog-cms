@@ -26,17 +26,17 @@ class HomeController extends Controller
         // Fetch other blog posts for pagination
         $blogs = Blog::where('status', '!=', 'Hide')->latest('created_at')->paginate(6);
 
-        $category = Category::all();
+        $categoryfooter = Category::all();
 
-        return view('home.index', compact('category', 'latestblog', 'blogs'));
+        return view('home.index', compact('categoryfooter', 'latestblog', 'blogs'));
     }
 
     public function blogs()
     {
         $latestblog = Blog::latest('created_at')->first();
         $blog = Blog::latest('created_at')->paginate(6);
-        $category = Category::all();
-        return view('home.blog-list', compact('category', 'latestblog', 'blog'));
+        $categoryfooter = Category::all();
+        return view('home.blog-list', compact('categoryfooter', 'latestblog', 'blog'));
     }
 
 
@@ -48,8 +48,9 @@ class HomeController extends Controller
 
         // Get all blogs that belong to the found name
         $blog = $name->blog()->latest('created_at')->paginate(6);
+        $categoryfooter = Category::all();
 
-        return view('home.author', compact('name', 'blog'));
+        return view('home.author', compact('name', 'blog', 'categoryfooter'));
     }
 
     public function category(string $category)
@@ -62,8 +63,9 @@ class HomeController extends Controller
 
         // Retrieve the latest blog overall
         $latestblog = $category->blog()->latest('created_at')->first();
+        $categoryfooter = Category::all();
 
-        return view('home.category-list', compact('category', 'latestblog', 'blog'));
+        return view('home.category-list', compact('category', 'latestblog', 'blog', 'categoryfooter'));
     }
 
     /**
@@ -88,7 +90,8 @@ class HomeController extends Controller
     public function show(string $title)
     {
         $blog = Blog::where('title', $title)->first();
-        return view('home.single-blog', compact('blog'));
+        $categoryfooter = Category::all();
+        return view('home.single-blog', compact('blog', 'categoryfooter'));
     }
 
     /**

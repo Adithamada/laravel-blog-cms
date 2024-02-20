@@ -10,7 +10,7 @@
                 <ul class="nav-wrapper">
                     <li><a href="/">Home</a></li>
                     <li><a href="/blog">Blog</a></li>
-                    <li><a href="">Single Post</a></li>
+                    <li><a href="/blog">Single Post</a></li>
                     <li><a href="">Pages</a></li>
                     <li><a href="">Contact</a></li>
                 </ul>
