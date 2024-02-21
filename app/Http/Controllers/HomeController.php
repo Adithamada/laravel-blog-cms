@@ -90,6 +90,23 @@ class HomeController extends Controller
     public function show(string $title)
     {
         $blog = Blog::where('title', $title)->first();
+
+        // Check if the blog post exists
+        if (!$blog) {
+            abort(404); // Or handle the case where the blog post is not found
+        }
+
+        $key = 'blog_' . $blog->id;
+
+        // Check if the session has a key for this specific blog post
+        if (!session()->has($key)) {
+            // Increment the post_view only if the session key is not found
+            $blog->increment('post_view');
+
+            // Store the session key for this specific blog post
+            session()->put($key, true);
+        }
+
         $categoryfooter = Category::all();
         return view('home.single-blog', compact('blog', 'categoryfooter'));
     }
