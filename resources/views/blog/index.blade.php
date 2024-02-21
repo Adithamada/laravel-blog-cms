@@ -200,6 +200,11 @@
                                                                         <option value="Hide">Hide</option>
                                                                     </select>
                                                                 </div>
+                                                                <?php $tags = $p->tag->pluck('tag')->implode(', ');  ?>
+                                                                <div class="mb-3">
+                                                                    <label for="tags" class="form-label">Tags</label>
+                                                                    <input type="text" class="form-control" id="tags" name="tag" value="{{ $tags }}">
+                                                                </div>
                                                                 <div class="mb-3">
                                                                     <label for="exampleInputEmail1" class="form-label">Desk</label>
                                                                     <input id="desk" type="hidden" name="desk" value="{{ old('desk', $p->desk) }}">

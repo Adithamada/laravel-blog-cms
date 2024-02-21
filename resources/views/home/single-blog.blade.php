@@ -39,7 +39,7 @@
                         <div class="tag-content">
                             <ul class="tag-wrapper">
                                 @foreach($blog->tag as $tag)
-                                <li><span class="badge bg-secondary">{{ $tag->tag }} </span></li>
+                                <li><span class="badge bg-secondary">{{ $tag->tag }}</span></li>
                                 @endforeach
                             </ul>
                         </div>

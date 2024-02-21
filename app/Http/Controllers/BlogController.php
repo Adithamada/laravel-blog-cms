@@ -83,17 +83,33 @@ class BlogController extends Controller
      */
     public function update(Request $request, String $id)
     {
-        $image = $request->file('image');
-        $image_name = $image->getClientOriginalName();
-        $post = Blog::find($id);
+        $post = Blog::findOrFail($id);
+
+        // Update blog post details
         $post->title = $request->title;
         $post->category_id = $request->category_id;
-        $post->image = $image_name;
         $post->status = $request->status;
         $post->desk = $request->desk;
 
-        $image->move(public_path() . '/vendor/img/', $image_name);
-        $post->update();
+        // Handle image update
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $image->move(public_path() . '/vendor/img/', $image_name);
+            $post->image = $image_name;
+        }
+
+        $post->save();
+
+        // Process and update tags
+        $tags = explode(',', $request->tag);
+        $post->tag()->detach(); // Detach old tags
+        foreach ($tags as $tagName) {
+            $tag = Tag::firstOrCreate(['tag' => trim($tagName)]);
+            $post->tag()->attach($tag);
+        }
+
+
         return back();
     }
 
