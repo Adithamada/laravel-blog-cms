@@ -50,17 +50,17 @@
             <h3 class="latest">
                 Latest Post
             </h3>
-            <div class="row mb-4">
+            <div class="row mb-4 justify-content-center">
                 @foreach($blog as $b)
                 <div class="col-4 mb-3">
                     <div class="card p-3">
                         <img src="{{ asset('vendor/img/'.$b->image) }}" alt="">
                         <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">{{ $b->category->category }} </span>
-                            <h4>{{ Illuminate\Support\Str::limit($b->title, 40, '...') }}</h4>
+                            <a href="{{ route('list-category',['category'=>$b->category->category]) }}"><span class="badge bg-body-secondary text-primary">{{ $b->category->category }}</span></a>
+                            <h4><a href="{{ route('show-blog', ['title' => $b->title]) }}" class="link text-dark text-decoration-none">{{ Illuminate\Support\Str::limit($b->title, 40, '...') }}</a></h4>
                             <div class="author d-flex">
                                 <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">{{ $b->user->name }}</p>
+                                <p class="text-secondary mx-3"><a href="{{ route('author-page',['authorName'=>$b->user->name]) }}" class="link text-dark text-decoration-none">{{ $b->user->name }}</a></p>
                                 <p class="text-secondary">{{ $b->date }} </p>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
     </section>
 
     <footer class="footer bg-body-secondary p-5">
-      @include('partials.mainfooter')
+        @include('partials.mainfooter')
     </footer>
     <script src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

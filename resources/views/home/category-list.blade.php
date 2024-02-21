@@ -56,28 +56,23 @@
 
     <section class="second-hero">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 @foreach($blog as $b)
                 <div class="col-4 mb-4">
                     <div class="card p-3">
                         <img src="{{ asset('vendor/img/'.$b->image) }}" alt="" class="rounded">
                         <div class="card-body">
-                            <span class="badge bg-body-secondary text-primary">{{$b->category->category}}</span>
+                        <a href="{{ route('list-category',['category'=>$b->category->category]) }}"><span class="badge bg-body-secondary text-primary">{{ $b->category->category }}</span></a>
                             <h4><a href="{{ route('show-blog', ['title' => $b->title]) }}" class="link text-dark text-decoration-none">{{ Illuminate\Support\Str::limit($b->title, 50, '...') }}</a></h4>
                             <div class="author d-flex">
                                 <i class="bi bi-person-circle"></i>
-                                <p class="text-secondary mx-3">{{$b->user->name}}</p>
+                                <p class="text-secondary mx-3"><a href="{{ route('author-page',['authorName'=>$b->user->name]) }}" class="link text-dark text-decoration-none">{{ $b->user->name }}</a></p>
                                 <p class="text-secondary">{{$b->date}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 @endforeach
-                <div class="col-12 mb-5">
-                    <div class="button-load text-center">
-                        <button type="button" class="btn btn-transparents border"> Load More</button>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
