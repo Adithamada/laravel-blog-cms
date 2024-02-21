@@ -71,6 +71,9 @@ input.search-input {
 section.second-hero{
     margin-top: 100px;
 }
+section.third-hero{
+    margin-top: 50px;
+}
 form.form-news {
     display: flex;
     flex-direction: column;

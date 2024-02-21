@@ -66,7 +66,7 @@
             </div>
         </div>
     </section>
-    <section class="second-hero">
+    <section class="third-hero">
         <div class="container">
             <h3 class="latest">
                 Latest Post
