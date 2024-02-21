@@ -38,10 +38,9 @@
                         <h4>Tags :</h4>
                         <div class="tag-content">
                             <ul class="tag-wrapper">
-                                <li><span class="badge bg-secondary">Education</span></li>
-                                <li><span class="badge bg-secondary">Tech</span></li>
-                                <li><span class="badge bg-secondary">Code</span></li>
-                                <li><span class="badge bg-secondary">Internet</span></li>
+                                @foreach($blog->tag as $tag)
+                                <li><span class="badge bg-secondary">{{ $tag->tag }} </span></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>

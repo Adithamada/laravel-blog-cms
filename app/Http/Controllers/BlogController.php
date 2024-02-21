@@ -53,10 +53,10 @@ class BlogController extends Controller
         $post->save();
 
         // Process and attach tags
-        $tags = explode(',', $request->tags);
+        $tags = explode(',', $request->tag);
         foreach ($tags as $tagName) {
             $tag = Tag::firstOrCreate(['tag' => trim($tagName)]);
-            $post->tags()->attach($tag);
+            $post->tag()->attach($tag);
         }
 
         return back();
