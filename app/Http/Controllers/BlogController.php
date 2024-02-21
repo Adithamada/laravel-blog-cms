@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tag;
 use App\Models\Blog;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use PhpParser\Node\Expr\Cast\String_;
@@ -39,6 +40,7 @@ class BlogController extends Controller
         $user_id = auth()->user()->id;
         $image = $request->file('image');
         $image_name = $image->getClientOriginalName();
+
         $post = new Blog;
         $post->title = $request->title;
         $post->user_id = $user_id;
@@ -49,6 +51,14 @@ class BlogController extends Controller
 
         $image->move(public_path() . '/vendor/img/', $image_name);
         $post->save();
+
+        // Process and attach tags
+        $tags = explode(',', $request->tags);
+        foreach ($tags as $tagName) {
+            $tag = Tag::firstOrCreate(['tag' => trim($tagName)]);
+            $post->tags()->attach($tag);
+        }
+
         return back();
     }
 
@@ -92,8 +102,8 @@ class BlogController extends Controller
      */
     public function destroy(String $id)
     {
-        $blog=Blog::find($id);
-    
+        $blog = Blog::find($id);
+
         $blog->delete();
         return back();
     }

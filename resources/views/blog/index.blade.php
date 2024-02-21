@@ -106,6 +106,7 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
+                                                <p class="help-block"></p>
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Date</label>
                                                     <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="date">
@@ -113,6 +114,10 @@
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Image</label>
                                                     <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="image">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="tags" class="form-label">Tags</label>
+                                                    <input type="text" class="form-control" id="tags" name="tag">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="exampleInputEmail1" class="form-label">Desk</label>
