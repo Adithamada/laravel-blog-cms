@@ -139,6 +139,7 @@
                                         <th>Category</th>
                                         <th>User</th>
                                         <th>Status</th>
+                                        <th>Post View</th>
                                         <th>Date</th>
                                         <th colspan="2">Action</th>
                                     </tr>
@@ -156,6 +157,7 @@
                                         @else
                                         <td class="text-center"><span class="badge badge-danger">{{ $p->status }}</span></td>
                                         @endif
+                                        <td>{{ $p->post_view }} </td>
                                         <td>{{ $p->date }} </td>
                                         <td>
                                             <a data-bs-toggle="modal" data-bs-target="#editBlog{{$p->id}}" class="btn btn-success">Edit</a>

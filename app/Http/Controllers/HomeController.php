@@ -16,6 +16,7 @@ class HomeController extends Controller
     {
         // Get the latest blog post
         $latestblog = Blog::latest('created_at')->first();
+        $trendingBlogs = Blog::where('post_view', '>=', 10)->get();
 
         // Check if the latest blog post is hidden
         if ($latestblog->status === 'Hide') {
@@ -28,7 +29,7 @@ class HomeController extends Controller
 
         $categoryfooter = Category::all();
 
-        return view('home.index', compact('categoryfooter', 'latestblog', 'blogs'));
+        return view('home.index', compact('categoryfooter', 'latestblog', 'blogs', 'trendingBlogs'));
     }
 
     public function blogs()

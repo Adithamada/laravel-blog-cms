@@ -44,6 +44,31 @@
     <section class="second-hero">
         <div class="container">
             <h3 class="latest">
+                Trending Post
+            </h3>
+            <div class="row">
+                @foreach($trendingBlogs as $b)
+                <div class="col-4 mb-3">
+                    <div class="card p-3">
+                        <img src="{{ asset('vendor/img/'.$b->image) }}" alt="" class="rounded">
+                        <div class="card-body">
+                            <a href="{{ route('list-category',['category'=>$b->category->category]) }}"><span class="badge bg-body-secondary text-primary">{{ $b->category->category }}</span></a>
+                            <h4><a href="{{ route('show-blog', ['title' => $b->title]) }}" class="link text-dark text-decoration-none">{{ Illuminate\Support\Str::limit($b->title, 40, '...') }}</a></h4>
+                            <div class="author d-flex">
+                                <i class="bi bi-person-circle"></i>
+                                <p class="text-secondary mx-3"><a href="{{ route('author-page',['authorName'=>$b->user->name]) }}" class="link text-dark text-decoration-none">{{ $b->user->name }}</a></p>
+                                <p class="text-secondary">{{ $b->date }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <section class="second-hero">
+        <div class="container">
+            <h3 class="latest">
                 Latest Post
             </h3>
             @livewire('blogs')
